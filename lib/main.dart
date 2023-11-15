@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:toonflix/screens/toonflix_screen.dart';
+import 'package:toonflix/services/api_service.dart';
 
 void main() {
   runApp(const App());
@@ -10,10 +14,15 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: const Color(0xFFF4EDDB),
-        body: Container(),
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.touch,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown,
+        },
       ),
+      home: ToonflixScreen(),
     );
   }
 }
